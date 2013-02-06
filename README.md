@@ -1,4 +1,4 @@
 testing-basics
 ==============
 
-Simple exercises about software testing
+Simple exercises about software testing.
