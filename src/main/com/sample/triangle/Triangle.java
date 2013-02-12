@@ -40,9 +40,23 @@ public class Triangle {
 			if (a / b == b / c || a / c == c / b || b / a == a / c) {
 				return TriangleType.KEPLER;
 			}
+			// si a hypoténuse et ( 2b==a ou 2c==a ) alors écolier 
 			return TriangleType.RECTANGLE;
 		}
 		if (a == b || b == c || a == c) {
+			double angleA = Math.toDegrees(Math.acos((Math.pow(a, 2)
+					- Math.pow(b, 2) - Math.pow(c, 2))
+					/ (-2 * b * c)));
+			double angleB = Math.toDegrees(Math.acos((Math.pow(b, 2)
+					- Math.pow(a, 2) - Math.pow(c, 2))
+					/ (-2 * a * c)));
+			double angleC = Math.toDegrees(Math.acos((Math.pow(c, 2)
+					- Math.pow(b, 2) - Math.pow(a, 2))
+					/ (-2 * b * a)));
+			if (a == b && angleC == 36 || b == c && angleA == 36 || a == c
+					&& angleB == 36) {
+				return TriangleType.OR;
+			}
 			return TriangleType.ISOCELE;
 		}
 		return TriangleType.SCALENE;

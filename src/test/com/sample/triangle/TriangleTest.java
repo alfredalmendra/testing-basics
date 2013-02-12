@@ -91,6 +91,15 @@ public class TriangleTest extends TestCase {
 		}
 	}
 
+	public void testUnDeuxTrois() {
+		Iterator<Triangle> it = new Permutations().get(new Triangle(1, 2, 3))
+				.iterator();
+		while (it.hasNext()) {
+			assertEquals(TriangleType.ECOLIER_HEMI_EQUILATERAL, it.next()
+					.getType());
+		}
+	}
+
 	public void testTroisQuatreCinq() {
 		Iterator<Triangle> it = new Permutations().get(new Triangle(3, 4, 5))
 				.iterator();
@@ -148,6 +157,30 @@ public class TriangleTest extends TestCase {
 						(1 + Math.sqrt(5)) / 2, 2))).iterator();
 		while (it.hasNext()) {
 			assertEquals(TriangleType.KEPLER, it.next().getType());
+		}
+	}
+
+	public void testOrValide() {
+		double b = 4;
+		double c = b;
+		double a = Math.sqrt(Math.pow(b, 2) + Math.pow(c, 2) - 2 * b * c
+				* Math.cos(Math.toRadians(36)));
+		Iterator<Triangle> it = new Permutations().get(new Triangle(a, b, c))
+				.iterator();
+		while (it.hasNext()) {
+			assertEquals(TriangleType.OR, it.next().getType());
+		}
+	}
+
+	public void testOrInvalideNonIsocele() {
+		double b = 4;
+		double c = 4.000001;
+		double a = Math.sqrt(Math.pow(b, 2) + Math.pow(c, 2) - 2 * b * c
+				* Math.cos(Math.toRadians(36)));
+		Iterator<Triangle> it = new Permutations().get(new Triangle(a, b, c))
+				.iterator();
+		while (it.hasNext()) {
+			assertEquals(TriangleType.SCALENE, it.next().getType());
 		}
 	}
 }
