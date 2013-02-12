@@ -13,9 +13,9 @@ public enum TriangleType {
 	RECTANGLE, // a^2=b^2+c^2
 	DEMI_CARRE, // isocele et rectangle
 	ARPENTEURS, // 3, 4, 5
-	KEPLER, // 1, (1+v5)/2, ((1+v5)/2)^2
+	KEPLER, // suite géométrique : 1, (1+v5)/2, ((1+v5)/2)^2
 	OR, // isocele et 36°, 72°, 72° A=arccos((a²-b²-c²)/-2*b*c)
-	ECOLIER_HEMI_EQUILATERAL, // rectangle et 30°, 60°, 90°
+	ECOLIER_HEMI_EQUILATERAL, // rectangle et 30°, 60°, 90° ou semi équilatéral
 	OR_BISOCELE, // Un triangle est dit bisocele si l'une de ses bissectrices le partage en deux triangles isoceles. Il ne peut s'agir que du demi-carre ou d'un triangle d'or
 	DEMI_CARRE_BISOCELE
 }

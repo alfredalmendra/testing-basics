@@ -92,8 +92,8 @@ public class TriangleTest extends TestCase {
 	}
 
 	public void testUnDeuxTrois() {
-		Iterator<Triangle> it = new Permutations().get(new Triangle(1, 2, 3))
-				.iterator();
+		Iterator<Triangle> it = new Permutations().get(
+				new Triangle(1, 2, Math.sqrt(3))).iterator();
 		while (it.hasNext()) {
 			assertEquals(TriangleType.ECOLIER_HEMI_EQUILATERAL, it.next()
 					.getType());
@@ -152,9 +152,11 @@ public class TriangleTest extends TestCase {
 	}
 
 	public void testKepler() {
-		Iterator<Triangle> it = new Permutations().get(
-				new Triangle(1, (1 + Math.sqrt(5)) / 2, Math.pow(
-						(1 + Math.sqrt(5)) / 2, 2))).iterator();
+		double a = 1;
+		double b = Math.sqrt((1 + Math.sqrt(5)) / 2);
+		double c = Math.pow(b, 2);
+		Iterator<Triangle> it = new Permutations().get(new Triangle(a, b, c))
+				.iterator();
 		while (it.hasNext()) {
 			assertEquals(TriangleType.KEPLER, it.next().getType());
 		}
