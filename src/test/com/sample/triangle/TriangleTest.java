@@ -7,7 +7,7 @@ import junit.framework.TestCase;
 public class TriangleTest extends TestCase {
 
 	public void testTroisLongueursIdentiques() {
-		Triangle triangle = new Triangle(2.1, 2.1, 2.1);
+		TriangleInterface triangle = new Triangle(2.1, 2.1, 2.1);
 		assertEquals(TriangleType.EQUILATERAL, triangle.getType());
 	}
 

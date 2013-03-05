@@ -1,6 +1,6 @@
 package com.sample.triangle;
 
-public class Triangle {
+public class Triangle implements TriangleInterface {
 
 	private double a, b, c;
 
@@ -10,6 +10,7 @@ public class Triangle {
 		this.c = c;
 	}
 
+	@Override
 	public TriangleType getType() {
 		if (a > b + c || b > a + c || c > a + b) {
 			return TriangleType.PAS_UN_TRIANGLE;
